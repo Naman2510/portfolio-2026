@@ -49,69 +49,115 @@ body {
   /* Technical Grid Background */
 }
 
-/* Glassmorphism Header */
+/* Atmospheric Header (Top Glow) */
 .glass-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 1.5rem 4rem;
+  height: 150px;
+  /* Atmospheric height */
+  padding: 1.5rem 2.5rem;
+  /* right-10 equiv */
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border-bottom: 1px solid var(--color-border);
+  justify-content: flex-end;
+  /* Align quote right */
+  align-items: flex-start;
+  /* Start from top */
+
+  /* Gradient Glow */
+  background: linear-gradient(to bottom, rgba(6, 182, 212, 0.15), transparent);
+  backdrop-filter: blur(4px);
+  /* backdrop-blur-sm */
+  -webkit-backdrop-filter: blur(4px);
+
+  border-bottom: none;
   z-index: 1000;
+  pointer-events: none;
 }
 
-.logo {
-  font-weight: 700;
-  font-size: 1.2rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--color-text-main);
-  background: linear-gradient(90deg, #fff, var(--color-text-muted));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.glass-header ul {
-  display: flex;
-  gap: 3rem;
-  list-style: none;
-}
-
-.glass-header a {
-  text-decoration: none;
-  color: var(--color-text-muted);
-  font-size: 0.9rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: color 0.3s ease;
-  position: relative;
-}
-
-.glass-header a::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--color-accent-primary);
-  transition: width 0.3s ease;
-}
-
-.glass-header a:hover {
-  color: var(--color-text-main);
-}
-
-.glass-header a:hover::after {
+.glass-header nav {
   width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  pointer-events: auto;
+}
+
+/* Quote Component - Clean (No Box) */
+.top-right-quote {
+  position: relative;
+  /* Relative to nav */
+  /* top/right relative to nav flow */
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  user-select: none;
+  max-width: 400px;
+  width: auto;
+
+  /* Removed Box Styling */
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.typewriter-glow {
+  font-family: var(--font-code);
+  font-size: 0.85rem;
+  color: #22d3ee;
+  /* text-cyan-400 */
+  text-shadow: 0 0 12px rgba(34, 211, 238, 0.9);
+  /* Stronger glow source */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+}
+
+.typewriter-glow .opacity-50 {
+  opacity: 0.6;
+  font-size: 0.7rem;
+}
+
+@keyframes breathing-glow {
+
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .glass-header {
+    justify-content: center;
+    padding: 1.5rem;
+  }
+
+  .top-right-quote {
+    position: relative;
+    top: 0;
+    right: auto;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .typewriter-glow {
+    font-size: 0.75rem;
+  }
 }
 
 /* Hero Section & Tech Frames */
