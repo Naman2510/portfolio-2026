@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Architecting the Future | Portfolio</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;800&family=Space+Mono:wght@400;700&family=Rajdhani:wght@500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="src/style.css" />
+</head>
+
+<body>
+    <!-- Navigation -->
+    <header class="glass-header">
+        <nav>
+            <div class="logo">PORTFOLIO</div>
+
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <!-- Tech HUD Frames -->
+        <div class="tech-frame-tl"></div>
+        <div class="tech-frame-tr"></div>
+        <div class="tech-frame-bl"></div>
+        <div class="tech-frame-br"></div>
+
+        <canvas id="bg-canvas"></canvas>
+        <div class="hero-bg-overlay"></div>
+        <div class="hero-overlay">
+            <!-- No Profile Pic as requested -->
+            <h1 class="neon-black">NAMAN GAUTAM</h1>
+            <p class="tagline">Bridging Embedded Engineering, Web3 Security, and Financial Systems</p>
+
+            <!-- Functional Navigation -->
+            <div class="filter-nav">
+                <button class="filter-btn active" data-filter="all">ALL DATA</button>
+                <button class="filter-btn" data-filter="architecture">ARCHITECTURE</button>
+                <button class="filter-btn" data-filter="web3">WEB3 & BITCOIN</button>
+                <button class="filter-btn" data-filter="ai">AI SYSTEMS</button>
+                <button class="filter-btn" data-filter="research">RESEARCH</button>
+            </div>
+
+            <!-- Quick-View Modal -->
+            <div id="quick-view-modal" class="modal-hidden">
+                <div class="modal-content">
+                    <h3 id="modal-title">TITLE</h3>
+                    <p id="modal-desc">Description goes here.</p>
+                    <div id="modal-details">
+                        <!-- Dynamic Content -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section id="build-log" class="content-section">
+            <div class="container">
+                <div class="grid" id="project-grid">
+
+                    <!-- 12-DOF Quadruped "Mochi" (Architecture, AI, Research) -->
+                    <div class="card terminal-card" data-category="architecture ai research">
+                        <div class="card-header">
+                            <span class="status-dot"></span> 12-DOF Quadruped "Mochi"
+                        </div>
+                        <div class="ide-badge">[Arduino IDE]</div>
+                        <p class="tech-desc">12-bit PCA9685 PWM mapping ($0-4095$). "Slow-Wave" power stability logic.
+                            Real-time MPU-6050 Motion Dashboard. 12x MG90S Servos.</p>
+                        <div class="stack-tags">
+                            <span>ESP32</span><span>C++</span><span>Inverse Kinematics</span>
+                        </div>
+                    </div>
+
+                    <!-- Firmware/Hardware Projects (Architecture) -->
+                    <div class="card terminal-card" data-category="architecture">
+                        <div class="card-header">
+                            <span class="status-dot"></span> Legacy Hardware
+                        </div>
+                        <div class="ide-badge">[Embedded C]</div>
+                        <p class="tech-desc">Footstep Power Generator (1st Prize), Digital 7-Seg Counter, Custom PCB
+                            Smart Night Lamp.</p>
+                        <div class="stack-tags">
+                            <span>PCB</span><span>Digital Logic</span><span>Hardware</span>
+                        </div>
+                    </div>
+
+                    <!-- Web3 Suite (Web3) -->
+                    <div class="card terminal-card" data-category="web3">
+                        <div class="card-header">
+                            <span class="status-dot eth"></span> Smart Contract Suite
+                        </div>
+                        <div class="ide-badge">[Remix IDE]</div>
+                        <p class="tech-desc">balanceSheet.sol, withdrawl.sol, splitter.sol. Efficient fund management
+                            logic.</p>
+                        <div class="stack-tags">
+                            <span>Solidity</span><span>Security</span>
+                        </div>
+                    </div>
+
+                    <div class="card terminal-card" data-category="web3">
+                        <div class="card-header">
+                            <span class="status-dot eth"></span> RWA Engine
+                        </div>
+                        <div class="ide-badge">[Bitcoin L2]</div>
+                        <p class="tech-desc">Roadmap: Real-World Asset Fractional Investment Engine on Bitcoin Layer 2s.
+                        </p>
+                        <div class="stack-tags">
+                            <span>RWA</span><span>Fintech</span>
+                        </div>
+                    </div>
+
+                    <!-- AI Systems (AI) -->
+                    <div class="card terminal-card" data-category="ai">
+                        <div class="card-header">
+                            <span class="status-dot ai"></span> Home Server Lab
+                        </div>
+                        <div class="ide-badge">[Termux/Linux]</div>
+                        <p class="tech-desc">Samsung M21 Server. Hosting n8n automation & ESP32-CAM diagnostics.</p>
+                        <div class="stack-tags">
+                            <span>n8n</span><span>IoT</span><span>Server</span>
+                        </div>
+                    </div>
+
+                    <!-- Research (Research) -->
+                    <div class="card terminal-card" data-category="research">
+                        <div class="card-header">
+                            <span class="status-dot res"></span> Carotid Ultrasonic
+                        </div>
+                        <div class="ide-badge">[Signal Proc]</div>
+                        <p class="tech-desc">Hardware-side researcher for transducer signal acquisition.</p>
+                        <div class="stack-tags">
+                            <span>Biomedical</span><span>Hardware</span>
+                        </div>
+                    </div>
+
+                    <div class="card terminal-card" data-category="research">
+                        <div class="card-header">
+                            <span class="status-dot res"></span> MOZOVATE Top-8
+                        </div>
+                        <div class="ide-badge">[Hackathon]</div>
+                        <p class="tech-desc">Finalist achievement (Sept 25, 2025).</p>
+                        <div class="stack-tags">
+                            <span>Innovation</span><span>Comp Sci</span>
+                        </div>
+                    </div>
+
+                    <!-- Verified Expertise (Shown in All/Research? Mapping to 'research' for filter alignment or a generic 'certified' category if user wants)
+                         User prompt: "Verified Expertise (Certifications Archive)... A non-image-based section"
+                         I will treat it as a card that appears in "Research" and "All" for now to keep the grid unified, or I'll just make it visible in 'all' and 'research'. -->
+                    <div class="card terminal-card" data-category="research architecture web3 ai">
+                        <!-- Visible in all specific filters relevant to the certs? Or just 'research'? User asked for separate section but "The site must function as a real-time data filter" implies grid. I'll put it in grid. -->
+                        <div class="card-header">
+                            <span class="status-dot"></span> Verified Expertise
+                        </div>
+                        <div class="ide-badge">[Certifications]</div>
+                        <ul class="tech-desc" style="list-style: none; padding:0;">
+                            <li>> NISM Series V-A (ARN Holder)</li>
+                            <li>> Digital Logic Design</li>
+                            <li>> Python Master</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="contact-form">
+                <h3>Get in Touch</h3>
+                <form>
+                    <input type="text" placeholder="Name" required />
+                    <input type="email" placeholder="Email" required />
+                    <textarea placeholder="Message" required></textarea>
+                    <button type="submit" class="btn copper">Send Message</button>
+                </form>
+            </div>
+            <div class="footer-bottom">
+                <button class="btn download-resume">Download Resume</button>
+                <p>&copy; 2026. Built with GSAP.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="src/main.js"></script>
+</body>
+
+</html>
