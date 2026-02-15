@@ -598,3 +598,8 @@ footer {
     padding: 4rem 1.5rem;
   }
 }
+
+#modal-desc {
+  margin-top: 2rem;
+  font-weight: 500;
+}
