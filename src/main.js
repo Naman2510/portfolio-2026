@@ -122,6 +122,9 @@ const init = () => {
     // 3D Tilt Setup
     setupTiltEffect();
 
+    // Contact Form Setup
+    setupContactForm();
+
     // --- Developer Terminal Filter & Quick-View Modal Logic ---
     const filterBtns = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.terminal-card');
@@ -283,5 +286,56 @@ const setupTiltEffect = () => {
         });
     }
 }
+
+const setupContactForm = () => {
+    // Check if emailjs is loaded
+    if (typeof emailjs === 'undefined') {
+        console.warn("EmailJS not loaded.");
+        return;
+    }
+
+    // Initialize EmailJS with your Public Key
+    // USER: Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS Public Key
+    emailjs.init({
+        publicKey: "L_uBgNPHffU-4jey7",
+    });
+
+    const contactForm = document.getElementById('contact-form');
+    const statusMsg = document.getElementById('form-status');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const btn = contactForm.querySelector('button');
+            const originalText = btn.textContent;
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+
+            // USER: Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual EmailJS IDs
+            emailjs.sendForm('service_us1anmh', 'template_4xnext7', this)
+                .then(() => {
+                    statusMsg.style.display = 'block';
+                    statusMsg.style.color = '#00ff9d'; // Neon green success
+                    statusMsg.textContent = 'Message Sent Successfully!';
+                    btn.textContent = 'Sent';
+                    contactForm.reset();
+
+                    setTimeout(() => {
+                        statusMsg.style.display = 'none';
+                        btn.textContent = originalText;
+                        btn.disabled = false;
+                    }, 5000);
+                }, (error) => {
+                    console.error('FAILED...', error);
+                    statusMsg.style.display = 'block';
+                    statusMsg.style.color = '#ff4d4d'; // Red error
+                    statusMsg.textContent = 'Failed to send. Please try again.';
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                });
+        });
+    }
+};
 
 init();

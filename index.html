@@ -72,7 +72,8 @@
                             <span class="status-dot"></span> 12-DOF Quadruped "Mochi"
                         </div>
                         <div class="ide-badge">[Arduino IDE]</div>
-                        <p class="tech-desc">12-bit PCA9685 PWM mapping ($0-4095$). "Slow-Wave" power stability logic.
+                        <p class="tech-desc">12-bit PCA9685 PWM mapping (0&deg;-4095&deg;). "Slow-Wave" power stability
+                            logic.
                             Real-time MPU-6050 Motion Dashboard. 12x MG90S Servos.</p>
                         <div class="stack-tags">
                             <span>ESP32</span><span>C++</span><span>Inverse Kinematics</span>
@@ -178,11 +179,13 @@
         <div class="container">
             <div class="contact-form">
                 <h3>Get in Touch</h3>
-                <form>
-                    <input type="text" placeholder="Name" required />
-                    <input type="email" placeholder="Email" required />
-                    <textarea placeholder="Message" required></textarea>
+                <form id="contact-form">
+                    <!-- Configured for EmailJS -->
+                    <input type="text" name="user_name" id="user_name" placeholder="Name" required />
+                    <input type="email" name="user_email" id="user_email" placeholder="Email" required />
+                    <textarea name="message" id="message" placeholder="Message" required></textarea>
                     <button type="submit" class="btn copper">Send Message</button>
+                    <p id="form-status" style="margin-top:10px; font-size: 0.9em; display:none;"></p>
                 </form>
             </div>
             <div class="footer-bottom">
@@ -195,6 +198,8 @@
     <!-- GSAP CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="src/main.js"></script>
 </body>
 
