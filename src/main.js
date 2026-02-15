@@ -125,6 +125,9 @@ const init = () => {
     // Contact Form Setup
     setupContactForm();
 
+    // Quote Ticker Setup
+    setupTypewriter();
+
     // --- Developer Terminal Filter & Quick-View Modal Logic ---
     const filterBtns = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.terminal-card');
@@ -336,6 +339,35 @@ const setupContactForm = () => {
                 });
         });
     }
+};
+
+
+const setupTypewriter = () => {
+    const container = document.getElementById('typewriter-quote-container');
+
+    if (!container || typeof Typewriter === 'undefined') return;
+
+    const typewriter = new Typewriter(container, {
+        loop: true,
+        delay: 50,
+        deleteSpeed: 30,
+        wrapperClassName: 'typewriter-glow'
+    });
+
+    typewriter
+        .typeString('The best way to predict the future is to invent it. <span class="opacity-50">— Alan Kay</span>')
+        .pauseFor(3000)
+        .deleteAll()
+        .typeString('The main event isn\'t even Bitcoin. It\'s the world getting a new way to trust. <span class="opacity-50">— Vitalik Buterin</span>')
+        .pauseFor(3000)
+        .deleteAll()
+        .typeString('Data is the new oil, but IoT is the drill.')
+        .pauseFor(3000)
+        .deleteAll()
+        .typeString('Anything that can be connected, will be connected. <span class="opacity-50">— Hans Vestberg</span>')
+        .pauseFor(3000)
+        .deleteAll()
+        .start();
 };
 
 init();

@@ -603,3 +603,84 @@ footer {
   margin-top: 2rem;
   font-weight: 500;
 }
+
+/* Top Right Typewriter Quote Styles - Centered Update */
+.top-right-quote {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  /* Center horizontally */
+  transform: translateX(-50%);
+  z-index: 1001;
+  /* Above header content */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Center items */
+  text-align: center;
+  /* Center text */
+  pointer-events: none;
+  user-select: none;
+  max-width: 600px;
+  /* Increased width for centered layout */
+  width: 100%;
+  /* Ensure full width availability */
+}
+
+/* Background Pulse Aura */
+.top-right-quote::before {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  background: rgba(0, 242, 255, 0.1);
+  filter: blur(24px);
+  border-radius: 50%;
+  z-index: -1;
+  animation: pulse-glow 3s infinite;
+}
+
+.typewriter-glow {
+  font-family: var(--font-code);
+  font-size: 0.75rem;
+  /* ~12px */
+  color: #00f2ff;
+  /* Electric Blue/Cyan */
+  text-shadow: 0 0 8px rgba(0, 242, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+}
+
+.typewriter-glow .opacity-50 {
+  opacity: 0.5;
+  font-size: 0.65rem;
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .top-right-quote {
+    top: 60px;
+    /* Move below logo to avoid overlap */
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .typewriter-glow {
+    font-size: 0.75rem;
+    /* Slightly larger for readability */
+  }
+}
