@@ -106,16 +106,25 @@ body {
   -webkit-backdrop-filter: none;
 }
 
+/* Enhanced Text Glow - High Intensity */
 .typewriter-glow {
   font-family: var(--font-code);
-  font-size: 0.85rem;
-  color: #22d3ee;
-  /* text-cyan-400 */
-  text-shadow: 0 0 12px rgba(34, 211, 238, 0.9);
-  /* Stronger glow source */
+  font-size: 1rem;
+  /* Scaled up ~20% */
+  font-weight: 700;
+  /* Bold */
+  color: #00f2ff;
+  /* Electric Cyan */
+  /* Triple-layered Glow: Core, Mid, Outer Bloom */
+  text-shadow:
+    0 0 8px rgba(34, 211, 238, 1),
+    0 0 20px rgba(34, 211, 238, 0.6),
+    0 0 35px rgba(34, 211, 238, 0.3);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  line-height: 1.4;
+  letter-spacing: 0.2em;
+  /* Tracking Widest */
+  line-height: 1.6;
+  /* Leading Relaxed */
 }
 
 .typewriter-glow .opacity-50 {
@@ -156,7 +165,10 @@ body {
   }
 
   .typewriter-glow {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
+    /* text-sm for mobile */
+    letter-spacing: 0.15em;
+    /* Slightly tighter for mobile width */
   }
 }
 
